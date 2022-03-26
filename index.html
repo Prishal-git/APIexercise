@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gebru Cohort's Birthdays</title>
+    <style>
+      h1 #name, h1 #dob, h1 #age  {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gebru Cohort's Birthdays and age</h1>
+    <div id="data">
+    <h1 id="name"></h1>
+    <h1 id="dob"></h1>
+    <h1 id="age"></h1>
+
+    </div>
+    </body>
+    <script>
+        const str = "http://localhost:3002/gebru/1";
+        async function getNameAge(endpoint) {
+            let url = str + endpoint;
+            const api_url = url;
+            const response = await fetch (api_url, {
+                mode: 'no-cors',
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                }});
+            const data = await response.json();
+            const { id, name, dob, age } = data;
+            document.getElementById("name").textContent = name;
+            document.getElementById("dob").textContent = dob;
+            document.getElementById("age").textContent = age;
+        }
+        getNameAge(1);
+
+
+
+
+
+// let str = "http://localhost:3002/gebru/1"
+//       async function getNameAge() {
+//         const response = await fetch (str);
+//         const data = await response.json();
+//         const{id, name, dob, age} = data;
+//         console.log(data)
+//         document.getElementById("name").textContent = name;
+//         document.getElementById("dob").textContent = dob;
+//         document.getElementById("age").textContent = age;
+//     }
+// getNameAge()
+
+
+
+
+    </script>
+  </body>
+</html>
