@@ -16,7 +16,7 @@ const gebru = [
   { id: 10, name: "Doreen", dob: "25-07-1997", age: 24 },
   { id: 11, name: "Jianli", dob: "28-10-1996", age: 25 },
   { id: 12, name: "Jagan", dob: "19-08-1976", age: 46 },
-  { id: 13, name: "Khari", dob: "", age: 0 },
+  { id: 13, name: "Khari", dob: "17-11-1993", age: 28 },
   { id: 14, name: "Libby", dob: "23-08-1997", age: 24 },
   { id: 15, name: "Michael", dob: "", age: 0 },
   { id: 16, name: "Naomi", dob: "23-04-1998", age: 23 },
@@ -41,10 +41,6 @@ app.get("/gebru/:id", (req, res) => {
   const studentId = req.params.id - 1;
   const selectedStudent = gebru[studentId];
   res.send(selectedStudent);
-});
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
 });
 
 // const requestListener = (req, res) => {
